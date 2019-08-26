@@ -24,6 +24,8 @@ bindir = $(prefix)/bin
 libdir = $(prefix)/lib
 includedir = $(prefix)/include
 
+CXX += -fmodule-mapper=mapping -Winclude-translate
+
 all: xmltest staticlib
 
 rebuild: clean all
@@ -57,7 +59,10 @@ libtinyxml2.a: tinyxml2.o
 	$(AR) $(ARFLAGS) $@ $^
 	$(RANLIB) $@
 
-tinyxml2.o: tinyxml2.cpp tinyxml2.h
+tinyxml2.h.gcm : tinyxml2.h
+	${CXX} ${CXXFLAGS} -fmodule-header -c $<
+
+tinyxml2.o: tinyxml2.cpp tinyxml2.h.gcm
 
 directories:
 	$(MKDIR) $(DESTDIR)$(prefix)
