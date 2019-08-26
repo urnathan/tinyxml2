@@ -6,7 +6,7 @@
 	#endif
 #endif
 
-#include "tinyxml2.h"
+import "tinyxml2.h";
 #include <cerrno>
 #include <cstdlib>
 #include <cstring>
