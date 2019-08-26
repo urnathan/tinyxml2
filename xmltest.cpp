@@ -1,3 +1,5 @@
+// Modified by Nathan Sidwell nathan@acm.org to demo modules
+
 #if defined( _MSC_VER )
 	#if !defined( _CRT_SECURE_NO_WARNINGS )
 		#define _CRT_SECURE_NO_WARNINGS		// This test file is not intended to be secure.

@@ -21,6 +21,8 @@ must not be misrepresented as being the original software.
 distribution.
 */
 
+// Modified by Nathan Sidwell nathan@acm.org to demo modules
+
 #ifndef TINYXML2_INCLUDED
 #define TINYXML2_INCLUDED
 
