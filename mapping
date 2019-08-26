@@ -1,2 +1,2 @@
 $root .
-./tinyxml2.h tinyxml2.h.gcm
+tinyxml2 tinyxml2.gcm

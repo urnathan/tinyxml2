@@ -22,9 +22,7 @@ distribution.
 */
 
 // Modified by Nathan Sidwell nathan@acm.org to demo modules
-
-#ifndef TINYXML2_INCLUDED
-#define TINYXML2_INCLUDED
+module;
 
 #if defined(ANDROID_NDK) || defined(__BORLANDC__) || defined(__QNXNTO__)
 #   include <ctype.h>
@@ -96,25 +94,27 @@ distribution.
 #   define TIXMLASSERT( x )               {}
 #endif
 
+export module tinyxml2;
 
+export {
+  
 /* Versioning, past 1.0.14:
 	http://semver.org/
 */
-static const int TIXML2_MAJOR_VERSION = 7;
-static const int TIXML2_MINOR_VERSION = 1;
-static const int TIXML2_PATCH_VERSION = 0;
-
-#define TINYXML2_MAJOR_VERSION 7
-#define TINYXML2_MINOR_VERSION 1
-#define TINYXML2_PATCH_VERSION 0
+enum TIXML2_CONSTS : int {
+    
+  TINYXML2_MAJOR_VERSION = 7,
+  TINYXML2_MINOR_VERSION = 1,
+  TINYXML2_PATCH_VERSION = 0,
 
 // A fixed element depth limit is problematic. There needs to be a
 // limit to avoid a stack overflow. However, that limit varies per
 // system, and the capacity of the stack. On the other hand, it's a trivial
 // attack that can result from ill, malicious, or even correctly formed XML,
 // so there needs to be a limit in place.
-static const int TINYXML2_MAX_ELEMENT_DEPTH = 100;
-
+  TINYXML2_MAX_ELEMENT_DEPTH = 100
+};
+ 
 namespace tinyxml2
 {
 class XMLDocument;
@@ -2349,4 +2349,4 @@ private:
 #   pragma warning(pop)
 #endif
 
-#endif // TINYXML2_INCLUDED
+}

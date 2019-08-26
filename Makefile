@@ -55,14 +55,14 @@ check: clean xmltest
 
 staticlib: libtinyxml2.a
 
-libtinyxml2.a: tinyxml2.o
+libtinyxml2.a: tinyxml2.o tinyxml2-m.o
 	$(AR) $(ARFLAGS) $@ $^
 	$(RANLIB) $@
 
-tinyxml2.h.gcm : tinyxml2.h
-	${CXX} ${CXXFLAGS} -fmodule-header -c $<
+tinyxml2.gcm : tinyxml2-m.o
+	@#nop
 
-tinyxml2.o: tinyxml2.cpp tinyxml2.h.gcm
+tinyxml2.o: tinyxml2.cpp tinyxml2.gcm
 
 directories:
 	$(MKDIR) $(DESTDIR)$(prefix)

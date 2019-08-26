@@ -6,7 +6,25 @@
 	#endif
 #endif
 
-import "tinyxml2.h";
+#if defined(ANDROID_NDK) || defined(__BORLANDC__) || defined(__QNXNTO__)
+#   include <ctype.h>
+#   include <limits.h>
+#   include <stdio.h>
+#   include <stdlib.h>
+#   include <string.h>
+#	if defined(__PS3__)
+#		include <stddef.h>
+#	endif
+#else
+#   include <cctype>
+#   include <climits>
+#   include <cstdio>
+#   include <cstdlib>
+#   include <cstring>
+#endif
+#include <stdint.h>
+
+import tinyxml2;
 #include <cerrno>
 #include <cstdlib>
 #include <cstring>
@@ -310,10 +328,6 @@ int main( int argc, const char ** argv )
 			XMLTest( "No leaks on start?", FALSE, leaksOnStart );
 		}
 	#endif
-
-	{
-		TIXMLASSERT( true );
-	}
 
 	if ( argc > 1 ) {
 		XMLDocument* doc = new XMLDocument();
