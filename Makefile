@@ -10,7 +10,10 @@ ARFLAGS = cr
 RM = rm -f
 RANLIB = ranlib
 MKDIR = mkdir -p
-CXXFLAGS = -fPIC
+CXXFLAGS = -fPIC -fno-diagnostics-show-caret
+
+TOOLBIN = ${HOME}/modules/latest/bin
+CXX = ${TOOLBIN}/g++ -fmodules-ts
 
 INSTALL = install
 INSTALL_PROGRAM = $(INSTALL)
